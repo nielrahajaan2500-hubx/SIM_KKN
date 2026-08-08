@@ -1,0 +1,28 @@
+body {
+    margin: 0;
+    font-family: "Segoe UI", sans-serif;
+    background: #f5f7fb;
+}
+
+/* ================= LANDING PAGES ================= */
+.hero {
+    margin-top: 90px;
+    padding: 100px 0;
+}
+
+.hero-image {
+    max-width: 100%;
+}
+
+.navbar-brand {
+    font-size: 1.4rem;
+}
+
+.nav-link {
+    margin-left: 10px;
+}
+
+.btn-warning {
+    border-radius: 8px;
+}
+

@@ -1,0 +1,237 @@
+/* ===========================
+   SIM KKN ADMIN PANEL
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#f4f6fb;
+    overflow-x:hidden;
+}
+
+/* ===========================
+   SIDEBAR
+=========================== */
+
+.sidebar{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:240px;
+
+    height:100vh;
+
+    background:#0d6efd;
+
+    color:#fff;
+
+    z-index:999;
+}
+
+.logo{
+
+    height:75px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:30px;
+
+    font-weight:bold;
+
+    border-bottom:1px solid rgba(255,255,255,.2);
+
+}
+
+.sidebar ul{
+
+    list-style:none;
+
+    padding:20px 0;
+
+}
+
+.sidebar ul li{
+
+    margin:4px 0;
+
+}
+
+.sidebar ul li a{
+
+    color:#fff;
+
+    text-decoration:none;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:13px 25px;
+
+    transition:.3s;
+
+    font-size:16px;
+
+}
+
+.sidebar ul li a:hover{
+
+    background:rgba(255,255,255,.15);
+
+}
+
+.sidebar ul li a.active{
+
+    background:#fff;
+
+    color:#0d6efd;
+
+    border-radius:0 30px 30px 0;
+
+    font-weight:bold;
+
+}
+
+/* ===========================
+   MAIN
+=========================== */
+
+.main{
+
+    margin-left:240px;
+
+    min-height:100vh;
+
+    width:calc(100% - 240px);
+
+}
+
+/* ===========================
+   TOPBAR
+=========================== */
+
+.topbar{
+
+    height:75px;
+
+    background:#fff;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 35px;
+
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+
+}
+
+.topbar h5{
+
+    margin:0;
+
+    font-size:25px;
+
+}
+
+.topbar .admin{
+
+    font-size:18px;
+
+}
+
+/* ===========================
+   CONTENT
+=========================== */
+
+.content{
+
+    padding:30px;
+
+}
+
+.page-title{
+
+    font-size:38px;
+
+    font-weight:700;
+
+    margin-bottom:25px;
+
+}
+
+.card-box{
+
+    background:#fff;
+
+    border-radius:12px;
+
+    padding:25px;
+
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
+
+}
+
+/* ===========================
+   BUTTON
+=========================== */
+
+.btn{
+
+    border-radius:8px;
+
+}
+
+/* ===========================
+   TABLE
+=========================== */
+
+.table{
+
+    width:100%;
+
+}
+
+.table thead{
+
+    background:#dcecff;
+
+}
+
+.table th{
+
+    font-weight:600;
+
+}
+
+/* ===========================
+   FOOTER
+=========================== */
+
+.footer{
+
+    text-align:center;
+
+    padding:20px;
+
+    color:#777;
+
+    font-size:14px;
+
+}
