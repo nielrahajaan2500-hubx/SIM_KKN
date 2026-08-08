@@ -1,69 +1,304 @@
-# CodeIgniter 4 Application Starter
+# 🎓 SIM KKN — Sistem Informasi Manajemen KKN
 
-## What is CodeIgniter?
+<p align="center">
+  <b>Sistem Informasi Manajemen Kuliah Kerja Nyata</b>
+  <br>
+  Aplikasi berbasis web untuk membantu pengelolaan kegiatan KKN secara terstruktur.
+</p>
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+---
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+## 📌 Tentang Project
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+**SIM KKN** merupakan aplikasi berbasis web yang dibuat untuk membantu proses pengelolaan kegiatan Kuliah Kerja Nyata (KKN).
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+Sistem ini digunakan oleh tiga jenis pengguna, yaitu **Admin, Dosen Pembimbing Lapangan (DPL), dan Mahasiswa**. Setiap pengguna memiliki hak akses dan fitur yang berbeda sesuai dengan perannya.
 
-## Installation & updates
+SIM KKN membantu proses pengelolaan data mahasiswa, dosen, lokasi KKN, pembentukan kelompok, program kerja, hingga pengumpulan dan verifikasi laporan KKN.
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+---
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+## 👥 Role Pengguna
 
-## Setup
+### 👨‍💼 Admin
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+Admin bertugas mengelola data utama dalam sistem.
 
-## Important Change with index.php
+Fitur Admin:
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+- Mengelola data mahasiswa
+- Mengelola data dosen
+- Mengelola data lokasi KKN
+- Membuat kelompok KKN
+- Menentukan Dosen Pembimbing Lapangan (DPL)
+- Melakukan plotting mahasiswa ke kelompok
+- Melihat detail kelompok
+- Mengelola anggota kelompok
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+### 👨‍🏫 Dosen Pembimbing Lapangan
 
-**Please** read the user guide for a better explanation of how CI4 works!
+Dosen Pembimbing Lapangan dapat melakukan monitoring terhadap kelompok yang menjadi tanggung jawabnya.
 
-## Repository Management
+Fitur Dosen:
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+- Melihat dashboard dosen
+- Melihat kelompok bimbingan
+- Melihat anggota kelompok
+- Melihat program kerja
+- Memverifikasi program kerja
+- Memberikan revisi program kerja
+- Melihat laporan KKN
+- Memverifikasi laporan
+- Memberikan catatan atau revisi laporan
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+### 👨‍🎓 Mahasiswa
 
-## Server Requirements
+Mahasiswa dapat mengelola kegiatan KKN yang dilakukan bersama kelompoknya.
 
-PHP version 8.2 or higher is required, with the following extensions installed:
+Fitur Mahasiswa:
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
+- Melihat informasi KKN
+- Melihat kelompok dan anggota
+- Mengelola program kerja
+- Mengajukan program kerja
+- Melihat status program kerja
+- Mengunggah laporan KKN
+- Mengunggah foto kegiatan
+- Mengunggah file laporan
+- Melihat catatan dari DPL
+- Memperbaiki laporan yang mendapatkan revisi
 
-> [!WARNING]
-> - The end of life date for PHP 7.4 was November 28, 2022.
-> - The end of life date for PHP 8.0 was November 26, 2023.
-> - The end of life date for PHP 8.1 was December 31, 2025.
-> - If you are still using below PHP 8.2, you should upgrade immediately.
-> - The end of life date for PHP 8.2 will be December 31, 2026.
+---
 
-Additionally, make sure that the following extensions are enabled in your PHP:
+## 🔄 Alur Sistem
 
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+```text
+                         ADMIN
+                           │
+          ┌────────────────┼────────────────┐
+          │                │                │
+          ▼                ▼                ▼
+      Mahasiswa          Dosen           Lokasi
+          │                │                │
+          └────────────────┼────────────────┘
+                           │
+                           ▼
+                   PEMBENTUKAN KELOMPOK
+                           │
+                           ▼
+                      MAHASISWA
+                           │
+                           ▼
+                    PROGRAM KERJA
+                           │
+                           ▼
+                         DPL
+                           │
+                  ┌────────┴────────┐
+                  │                 │
+                  ▼                 ▼
+              Disetujui           Revisi
+                  │                 │
+                  │                 ▼
+                  │             Perbaikan
+                  │                 │
+                  └────────┬────────┘
+                           ▼
+                    LAPORAN KKN
+                           │
+                           ▼
+                         DPL
+                           │
+                  ┌────────┴────────┐
+                  │                 │
+                  ▼                 ▼
+              Disetujui           Revisi
+                  │                 │
+                  ▼                 ▼
+                Selesai         Perbaikan
+
+⚙️ Teknologi yang Digunakan
+Teknologi	Keterangan
+PHP	Bahasa pemrograman
+CodeIgniter 4	Framework aplikasi
+MySQL	Database
+Bootstrap	Framework tampilan
+HTML	Struktur halaman
+CSS	Tampilan halaman
+JavaScript	Interaksi halaman
+XAMPP	Web server dan database lokal
+Visual Studio Code	Code editor
+✨ Fitur Utama
+🔐 Authentication
+
+Sistem memiliki proses login untuk membedakan hak akses pengguna.
+
+Role yang tersedia:
+
+Admin
+Dosen
+Mahasiswa
+
+Setiap pengguna akan diarahkan ke halaman sesuai dengan role masing-masing.
+
+👥 Manajemen Kelompok
+
+Admin dapat melakukan pengelolaan kelompok KKN, seperti:
+
+Membuat kelompok
+Menentukan nama kelompok
+Menentukan DPL
+Menentukan lokasi KKN
+Menambahkan mahasiswa ke kelompok
+Melihat anggota kelompok
+Menghapus anggota dari kelompok
+📝 Program Kerja
+
+Mahasiswa dapat membuat program kerja yang akan dilaksanakan selama kegiatan KKN.
+
+Program kerja kemudian diperiksa oleh DPL.
+
+Status program kerja:
+
+Menunggu
+   │
+   ├──► Revisi
+   │       │
+   │       └──► Perbaikan
+   │
+   └──► Disetujui
+            │
+            ▼
+          Terkunci
+
+Program kerja yang sudah disetujui akan terkunci sehingga mahasiswa tidak dapat mengubah atau menghapusnya.
+
+📄 Laporan KKN
+
+Mahasiswa dapat mengunggah laporan kegiatan KKN yang berkaitan dengan program kerja.
+
+Data yang dapat diunggah meliputi:
+
+Judul laporan
+Deskripsi
+Foto kegiatan
+File laporan
+
+Laporan kemudian diverifikasi oleh DPL.
+
+Status laporan:
+
+Menunggu
+   │
+   ├──► Revisi
+   │       │
+   │       └──► Perbaikan
+   │
+   └──► Disetujui
+            │
+            ▼
+          Terkunci
+
+Laporan yang sudah disetujui tidak dapat diedit atau dihapus oleh mahasiswa.
+
+🗄️ Database
+
+Beberapa tabel utama yang digunakan dalam sistem:
+
+users
+mahasiswa
+dosen
+lokasi
+kelompok
+proker
+laporan
+
+Relasi utama sistem:
+
+Dosen
+  │
+  ▼
+Kelompok
+  │
+  ├── Mahasiswa
+  │
+  └── Program Kerja
+          │
+          ▼
+       Laporan
+📁 Struktur Project
+SIM_KKN/
+│
+├── app/
+│   ├── Controllers/
+│   ├── Models/
+│   └── Views/
+│
+├── public/
+│
+├── system/
+│
+├── writable/
+│
+├── tests/
+│
+├── .gitignore
+├── composer.json
+├── env
+└── spark
+🚀 Cara Menjalankan Project
+1. Clone Repository
+git clone https://github.com/nielrahajaan2500-hubx/SIM_KKN.git
+2. Masuk ke Folder Project
+cd SIM_KKN
+3. Install Dependency
+composer install
+4. Konfigurasi Environment
+
+Salin file env menjadi .env.
+
+Kemudian sesuaikan konfigurasi database dengan database lokal.
+
+Contoh:
+
+database.default.hostname = localhost
+database.default.database = si_kkn
+database.default.username = root
+database.default.password =
+database.default.DBDriver = MySQLi
+database.default.port = 3306
+
+File .env tidak disertakan dalam repository karena berisi konfigurasi environment.
+
+5. Jalankan Aplikasi
+php spark serve
+
+Kemudian buka browser:
+
+http://localhost:8080
+📸 Tampilan Aplikasi
+Landing Page
+
+Tambahkan screenshot landing page di bagian ini.
+
+Login
+
+Tambahkan screenshot halaman login di bagian ini.
+
+Dashboard Admin
+
+Tambahkan screenshot dashboard admin di bagian ini.
+
+Dashboard Mahasiswa
+
+Tambahkan screenshot dashboard mahasiswa di bagian ini.
+
+Dashboard Dosen
+
+Tambahkan screenshot dashboard dosen di bagian ini.
+
+🎯 Tujuan Project
+
+SIM KKN dibuat untuk membantu proses administrasi dan pengelolaan kegiatan KKN agar menjadi lebih terstruktur.
+
+Sistem ini diharapkan dapat mempermudah Admin dalam mengelola data, membantu DPL dalam melakukan monitoring dan verifikasi, serta memudahkan mahasiswa dalam mengelola program kerja dan laporan kegiatan KKN.
