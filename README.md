@@ -276,27 +276,6 @@ php spark serve
 Kemudian buka browser:
 
 http://localhost:8080
-📸 Tampilan Aplikasi
-Landing Page
-
-Tambahkan screenshot landing page di bagian ini.
-
-Login
-
-Tambahkan screenshot halaman login di bagian ini.
-
-Dashboard Admin
-
-Tambahkan screenshot dashboard admin di bagian ini.
-
-Dashboard Mahasiswa
-
-Tambahkan screenshot dashboard mahasiswa di bagian ini.
-
-Dashboard Dosen
-
-Tambahkan screenshot dashboard dosen di bagian ini.
-
 🎯 Tujuan Project
 
 SIM KKN dibuat untuk membantu proses administrasi dan pengelolaan kegiatan KKN agar menjadi lebih terstruktur.
